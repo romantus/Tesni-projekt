@@ -10,7 +10,7 @@ public class FirstExample {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "geslo123!";
+    static final String PASS = "ggg";
 
     public static void main(String[] args) {
         Connection conn = null;
