@@ -10,7 +10,7 @@ public class FirstExample {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "ggg";
+    static final String PASS = "test123";
 
     public static void main(String[] args) {
         Connection conn = null;
@@ -27,15 +27,18 @@ public class FirstExample {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT * FROM tabela2";
+            sql = "SELECT * FROM filter2 limit 10";
             ResultSet rs = stmt.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnsNumber = rsmd.getColumnCount();
 
+
             //STEP 5: Extract data from result set
+            System.out.print(rsmd.getColumnName(1) + "\t" + rsmd.getColumnName(2) + "\t" + rsmd.getColumnName(3) + "\t" + rsmd.getColumnName(4) + "\t" + rsmd.getColumnName(5) + "\t" + rsmd.getColumnName(6) + "\t" + rsmd.getColumnName(7) + "\n");
             while (rs.next()) {
                     String columnValue = rs.getString(3);
-                    System.out.print(columnValue + " " + rsmd.getColumnName(1) + "\n");
+
+                    System.out.print(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7) + "\n");
 
             }
             //STEP 6: Clean-up environment
